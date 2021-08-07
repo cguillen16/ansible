@@ -1,0 +1,7 @@
+# uninstall apache playbook
+---
+  - hosts: Webservers:DBservers
+    become: true
+    tasks:
+      - name: uninstall apache
+        yum: name=apache2 state=absent

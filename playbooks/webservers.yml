@@ -1,0 +1,48 @@
+# webserver setup
+---
+  - hosts: Webservers
+    become: true
+    tasks:
+      - name: update packages to latest version
+        yum: name=* state=latest
+
+      - name: install apache
+        yum: name=apache2 state=present
+      
+      - name: delete file
+        file: path=/var/www/html/index.html state=absent
+      
+      - name: create new file
+        lineinfile: 
+          create: yes
+          path: /var/www/html/index.html
+          line: <html>Hell from server1<html>
+        notify: start apache
+      
+    handlers:
+      - name: start apache
+        service: name=apache2 state=started
+
+  - hosts: DBservers
+    become: true
+    tasks:
+      - name: update packages to latest version
+        yum: name=* state=latest
+
+      - name: install apache
+        yum: name=apache2 state=present
+      
+      - name: delete file
+        file: path=/var/www/html/index.html state=absent
+      
+      - name: create new file
+        lineinfile: 
+          create: yes
+          path: /var/www/html/index.html
+          line: <html>Hell from server2<html>
+        notify: start apache
+      
+    handlers:
+      - name: start apache
+        service: name=apache2 state=started
+

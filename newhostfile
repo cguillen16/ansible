@@ -1,0 +1,10 @@
+#Hosts File
+
+[Webservers]
+server1 ansible_host=18.130.50.61
+
+[DBservers]
+server2 ansible_host=3.10.19.111
+
+[Local]
+control ansible_connection=local
