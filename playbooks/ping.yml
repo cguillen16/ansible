@@ -1,6 +1,0 @@
-#ping playbook
----
-  - hosts: Webservers:DBservers
-    tasks:
-      - name: ping all servers
-        action: ping

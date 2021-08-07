@@ -1,5 +1,0 @@
-# Sequential Playbook Execution
----
-  - import_playbook: updatepackages.yml
-  - import_playbook: installapache.yml
-  - import_playbook: configureapache.yml

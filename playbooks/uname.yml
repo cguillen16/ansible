@@ -1,7 +1,0 @@
-# uname playbook
----
-  - hosts: Webservers:DBservers
-    tasks:
-      - name: get OS uname
-        shell: uname
-        changed_when: False

@@ -1,7 +1,0 @@
-# update packages playbook
----
-  - hosts: Webservers
-    become: true
-    tasks:
-      - name: update packages to latest version
-        yum: name=* state=latest
